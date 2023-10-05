@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<title>Battle-Web PHP - Documentación en Español</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+
+	</head>
+	<body>
+
+		<!-- HEADER -->
+		<header class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1 class="display-3 text-secondary">Battle-Web PHP</h1>
+		    <p class="lead">Con CodeIgniter 4 y Bootstrap 5.</p>
+		  </div>
+		</header>
+
+
+		<!-- CONTAINER -->
+		<div class="container">
+
+	        <div class="row">
+	        	<div class="col-md-3">
+
+					<div class="btn-group" role="group" aria-label="languajes">
+					  <a href="documentation_es.html" class="btn btn-light active"><img style="width:40px; height:25px;" src="../assets/img/languages/es.png" alt="es" /></a>
+					  <a href="documentation_en.html" class="btn btn-light"><img style="width:40px; height:25px;" src="../assets/img/languages/en.jpg" alt="en" /></a>
+					</div>
+
+					<div id="list-example" class="list-group" style="margin-top:50px;">
+					  <a class="list-group-item list-group-item-action" href="#overview">Visión general</a>
+					  <a class="list-group-item list-group-item-action" href="#install">Instalación</a>
+					  <a class="list-group-item list-group-item-action" href="#features">Características</a>
+					  <a class="list-group-item list-group-item-action" href="#ranks">Permisos/rangos</a>
+					  <a class="list-group-item list-group-item-action" href="#mobsandshop">Enemigos, tienda y mapas</a>
+					  <a class="list-group-item list-group-item-action" href="#lang">Idiomas</a>
+					  <a class="list-group-item list-group-item-action" href="#messagedev">Mensaje del desarrollador</a>
+					</div>
+					<br/>
+					<p class="text-secondary"><small>Ult. actualización: <b>08/05/2023</b></small></p>
+					<p class="text-secondary"><small>Creado por: <a href="https://twitter.com/CoalsPlay">@CoalsPlay</a></small></p>
+
+				</div>
+
+				<div class="col-md-9">
+
+					<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example text-secondary">
+
+					  <h2 id="overview">Visión general</h2>
+					  <hr/>
+					  <p><b>Battle-Web PHP</b> es un concepto de <b>"Red Social"</b>, con toques RPG incluídos como principal mecánica. Cuenta con muchas funciones y características que lo hacen muy completo y entretenido, ya que cada usuario es un "personaje" dentro de este juego, el cual puede ir progresando como si de un mítico MMORPG se tratase pero con su limitación web y por ende su estilo de juego no-gráfico.</p>
+
+
+					  <h2 id="install" style="margin-top:40px;">Instalación</h2>
+					  <hr/>
+					  <p>
+					  	
+						<span>
+							<p>
+							En primer lugar debe subir la base de datos que encontrará en el directorio "<b>/DB/</b>" a su servidor MySQL. Una vez la base de datos esté subida tendrá que configurar sus datos en el archivo <code class="highlighter-rouge">Database.php</code> para realizar la conexión. Ya establecida la conexión con la base de datos, iremos al archivo <code class="highlighter-rouge">.env</code> para configurar la URL de su sitio en la <b>línea 23</b> (ejemplo: <code class="highlighter-rouge">app.baseURL = 'http://ejemplo.com/'</code>) y al archivo <code class="highlighter-rouge">App.php</code> en la <b>línea 25</b> (ejemplo: <code class="highlighter-rouge">public string $baseURL = 'http://ejemplo.com/';</code> (<b class="text-danger">terminado en '/' en ambos archivos</b>)).
+							Por último, iremos al archivo <code class="highlighter-rouge">Email.php</code> y tendrá que configurar las credenciales de su servidor SMTP. (Esto es necesario para que el sistema de recuperar contraseña funcione)
+							</p>
+
+						</span>
+
+						<b><span class="text-default">Mapa de archivos clave para la instalación del sitio:</span></b>
+						<div class="card">
+						  <div class="card-body">
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">bw-php/
+├── .env
+├── app/
+│    └── Config/
+│	     ├── App.php
+│	     ├── Database.php
+│	     └── Email.php
+└── DB/
+     └── bwphp-db.sql
+</code></pre></figure>
+
+						  </div>
+						</div>
+
+							<br/>
+
+							<p>
+								<b>La base de datos contiene una cuenta con permisos de administrador con la que poder empezar.</b><br>
+								<h4>
+									Usuario: <code class="highlighter-rouge">admin</code><br>
+									Contraseña: <code class="highlighter-rouge">admin123</code><br>
+								</h4> 
+							</p>
+
+							<p><b class="text-danger">
+							NOTA IMPORTANTE: ES DE VITAL IMPORTANCIA QUE CAMBIE EL NOMBRE Y LA CONTRASEÑA DE SU CUENTA ADMINISTRADORA PARA EVITAR PROBLEMAS DE SEGURIDAD.</b>
+							</p>
+
+
+					  </p>
+
+
+					  <h2 id="features" style="margin-top:40px;">Características</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<b>Battle-Web PHP</b> cuenta con muchos sistemas que le dan forma a este concepto, dispone de todo lo básico, desde su administración el cual puede ser gestionada por un usuario con permisos, puede desempeñar cualquier función, como agregar enemigos, objetos en la tienda, categorías y mapas, noticias, y un largo etc..., también tiene control de toda la aplicación como parámetros del juego e información del sitio en general. Detallaré algunos sistemas que éste posee.<br/>
+
+					  	<p>
+					  	- Sistema de login y registro.<br/>
+					  	- Sistema de noticias y comentarios.<br/>
+					  	- Sistema de enemigos con atributos únicos totalmente personalizable y gestionable.<br/>
+					  	- Sistema de categorías y mapas donde puede introducir enemigos previamente creados.<br/>
+					  	- Sistema de TOP de los mejores jugadores del sitio.<br/>
+					  	- Sistema de administración 100% gestionable donde puede gestionar la aplicación por completa.<br/>
+					  	- Sistema de perfiles.<br/>
+					  	- Sistema de combates tanto con enemigos(PvM) como con otros usuarios(PvP).<br/>
+					  	- Sistema de tiendas e inventario.<br/>
+					  	- Sistema de mensajería privada y notificaciones.<br/>
+					  	- Sistema de amigos.<br/>
+					  	- Sistema de Feedback para poder reportar bugs o sugerencias diréctamente a la administración.<br/>
+					  	- Permisos con restricciones (por ahora hay tres tipos de permisos, admin(1), mod(2) y colaborador(3)).<br/>
+					  	- Sistema de FAQ personalizable y totalmente gestionable desde la administración.<br/>
+					  	</p>
+
+					  </p>
+
+
+					  <h2 id="ranks" style="margin-top:40px;">Permisos/rangos</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+					  		<b>Battle-Web PHP</b> posee tres tipos de rangos, que serían "<b class="text-danger">Administrador</b>"(<b>1</b>) el cual cuenta con todos los permisos posibles, seguiríamos con "<b class="text-success">Moderador</b>"(<b>2</b>) que tendría muchas zonas de la administración restringidas y por ende muchos permisos a nivel general, y por último tendríamos al "<b class="text-primary">Colaborador</b>"(<b>3</b>) que tendría aun más zonas restringidas, por lo que como su nombre indica, serviría de ayuda para redactar noticias o FAQs, puede ayudar a la administración de otros modos, pese que su acceso a la administración esté limitado.<br/>
+					  	</p>
+
+					  	<p>
+					  	Los rangos en BW-PHP se identifican por <b>IDs</b>, el cual muestro entre paréntesis en las menciones anteriores, y por lo tanto el código entiendo dichos rangos únicamente por esas <b>IDs</b>.
+					  	</p>
+
+					  </p>
+
+					  <h2 id="mobsandshop" style="margin-top:40px;">Enemigos, tienda y mapas</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+					  	Los enemigos son parte de la mecánica de la aplicación, podrá incluirlos desde la administración en el apartado "<b>Gestor de enemigos</b>", también podrá dotar a cada enemigo de estádisticas y recompensas únicas.
+					  	</p>
+					  	<p>
+					  	En la tienda también podrá incluir artículos de venta que se podrán usar como consumibles a lo largo del progreso del usuario. Desde la administración podrá incluir dichos artículos con su nombre, descripción, el efecto que otorgará y la cantidad de su efecto, junto al precio.
+					  	</p>
+
+					  	<p>
+					  	Los mapas son la parte primordial del juego, ya que es donde tendrá que enfrentarse con los distintos enemigos que vaya implementando, antes de nada debe crear las categorías que en un concepto más "gamer" se trataría de los "Mundos" o "Episodios", y dentro de dichas categorías debería introducir los mapas. También cabe resaltar que en la creación de enemigos debe asignarle un mapa, por lo que si no hay mapas no le aconsejo crear enemigos.
+					  	</p>
+
+					  	<p>
+					  	<b>IMPORTANTE:</b> las imágenes de los enemigos, productos de la tienda y mapas, debe depositarlo en los directorios correspondientes, el cual serían "<b>/assets/img/mobs</b>"(para enemigos), "<b>/assets/img/items</b>"(para objetos de tienda), "<b>/assets/img/maps</b>"(para mapas). Una vez haya depositado dichas imágenes se listarán automáticamente en la administración para que pueda seleccionar su imagen en una lista desplegable.
+					  	</p>
+
+					  </p>
+
+					  <h2 id="lang" style="margin-top:40px;">Idiomas</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+					  	Actualmente <b>Battle-Web PHP</b> solo dispone del idioma <b>Español</b>, debido a que es el idioma nativo de su desarrollador y es el único que participa en el desarrollo de esta aplicación, por lo que esta característica dependerá del éxito del mismo proyecto.
+					  	</p>
+					  	<p>
+					  	<b class="text-danger">NOTA: Lo único traducido es esta documentación para una mayor comprensión de la aplicación.</b>
+					  	</p>
+
+					  </p>
+
+
+					  <h2 id="messagedev" style="margin-top:40px;">Mensaje del desarrollador</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+					  	Si está leyendo esto quiere decir que ha adquirido este producto, por lo que se lo agradezco de corazón.<br/> <b>Battle-Web PHP</b> ha sido mi proyecto personal durante algunos meses y como desarrollador único, he depositado muchísimo esfuerzo y cariño en cada característica que actualmente esta aplicación posea, han pasado unos pocos meses desde que empecé a escribir el código de BW-PHP por lo que me siento muy orgulloso de poder ofrecerle este producto para que pueda ponerlo en funcionamiento o aprender su funcionamiento. Debe saber que el desarrollo no ha terminado por lo que seguiré dotando este proyecto de más características y correcciones según me vayan sugiriendo ideas o reportando errores. Me despido y espero de corazón que este producto sea de su agrado y pueda darle un buen uso o al menos esté satisfecho con su compra, le agradezco nuevamente por adquirir BW-PHP y depositar su confianza en mi.<br/>
+					  	</p>
+
+					  	<p>
+					  	¡Nos vemos muy pronto!
+					  	</p>
+
+
+					  </p>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+        </div>
+
+
+        <footer style="border-top:1px solid #ddd; padding:30px; margin-top:50px;" class="text-secondary">
+        	<div class="container">
+        		<p>
+				<b>Battle-Web PHP</b> creado por <a href="http://twitter.com/CoalsPlay">CoalsPlay</a> con CodeIgniter 4 y Bootstrap 5.
+        		</p>
+        		<p>
+        		Todos los derechos reservados. &copy;
+        		</p>
+        	</div>
+        </footer>
+
+
+		<!-- JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/holder.js"></script>
+
+	</body>
+</html>

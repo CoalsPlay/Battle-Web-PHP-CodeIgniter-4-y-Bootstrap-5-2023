@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Battle-Web PHP - Documentation in english</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+
+	</head>
+	<body>
+
+		<!-- HEADER -->
+		<header class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1 class="display-3 text-secondary">Battle-Web PHP</h1>
+		    <p class="lead">With CodeIgniter 4 and Bootstrap 5.</p>
+		  </div>
+		</header>
+
+
+		<!-- CONTAINER -->
+		<div class="container">
+
+	        <div class="row">
+	        	<div class="col-md-3">
+
+					<div class="btn-group" role="group" aria-label="languajes">
+					  <a href="documentation_es.html" class="btn btn-light"><img style="width:40px; height:25px;" src="../assets/img/languages/es.png" alt="es" /></a>
+					  <a href="documentation_en.html" class="btn btn-light active"><img style="width:40px; height:25px;" src="../assets/img/languages/en.jpg" alt="en" /></a>
+					</div>
+
+					<div id="list-example" class="list-group" style="margin-top:50px;">
+					  <a class="list-group-item list-group-item-action" href="#overview">Overview</a>
+					  <a class="list-group-item list-group-item-action" href="#install">Installation</a>
+					  <a class="list-group-item list-group-item-action" href="#features">Features</a>
+					  <a class="list-group-item list-group-item-action" href="#ranks">Permissions / Ranks</a>
+					  <a class="list-group-item list-group-item-action" href="#mobsandshop">Enemies, Shop and Maps</a>
+					  <a class="list-group-item list-group-item-action" href="#lang">Languages</a>
+					  <a class="list-group-item list-group-item-action" href="#messagedev">Developer message</a>
+					</div>
+					<br/>
+					<p class="text-secondary"><small>Last update: <b>08/05/2023</b></small></p>
+					<p class="text-secondary"><small>Created by: <a href="https://twitter.com/CoalsPlay">@CoalsPlay</a></small></p>
+
+				</div>
+
+				<div class="col-md-9">
+
+					<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example text-secondary">
+
+					  <h2 id="overview">Overview</h2>
+					  <hr/>
+					  <p><b>Battle-Web PHP</b> is a "<b>Social Network</b>" concept, with RPG touches included as main mechanics. It has many functions and features that make it very complete and entertaining, as each user is a "character" in this game, which can progress as if it were a mythical MMORPG but with its web limitation and therefore its non-graphic game style.</p>
+
+
+					  <h2 id="install" style="margin-top:40px;">Installation</h2>
+					  <hr/>
+					  <p>
+					  	
+						<span>
+							<p>
+								First you need to upload the database that is in the "<b>/DB/</b>" directory to your MySQL server. Once the database is uploaded you will have to configure your data in the <code class="highlighter-rouge">Database.php</code> file to make the connection. Once the connection with the database is established, we will go to the <code class="highlighter-rouge">.env</code> file to configure the URL of your site in <b>line 23</b> (example: <code class="highlighter-rouge">app.baseURL = 'http://example.com/'</code>) and to the <code class="highlighter-rouge">App.php</code> file <b>on line 25</b> (example: <code class="highlighter-rouge">public string $baseURL = 'http://example.com/';</code> (<b class="text-danger">terminated with '/' in both files</b>)). Finally, we'll go to the <code class="highlighter-rouge">Email.php</code> file and we'll need to set up your SMTP server credentials. (This is required for the password recovery system to work)
+							</p>
+						</span>
+
+						<b><span class="text-default">Filemap for site installation:</span></b>
+						<div class="card">
+						  <div class="card-body">
+
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">bw-php/
+  ├── .env
+  ├── app/
+  │    └── Config/
+  │	     ├── App.php
+  │	     ├── Database.php
+  │	     └── Email.php
+  └── DB/
+	└── bwphp-db.sql
+</code></pre></figure>
+
+						  </div>
+						</div>
+							<br/>
+
+							<p>
+								<b>The database contains an account with administrator permissions to start with.</b><br>
+								<h4>
+									Username: <code class="highlighter-rouge">admin</code><br>
+									Password: <code class="highlighter-rouge">admin123</code><br>
+								</h4> 
+							</p>
+
+							<p><b class="text-danger">
+								IMPORTANT NOTE: IT IS VERY IMPORTANT THAT YOU CHANGE THE NAME AND PASSWORD OF YOUR DEFAULT ADMINISTRATOR ACCOUNT TO AVOID SECURITY PROBLEMS.</b>
+							</p>
+
+					  </p>
+
+
+					  <h2 id="features" style="margin-top:40px;">Features</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<b>Battle-Web PHP</b> has many systems that give shape to this concept, it has all the basic elements, from its administration that can be managed by a user with permissions, it can execute any function, like adding enemies, objects in the store, categories. And the maps, news, etc. They also have control of the entire application as game parameters and general site information. Later I will detail some systems that are implemented.<br/>
+
+					  	<p>
+					  	- Login and register.<br/>
+					  	- News and comments system.<br/>
+					  	- System of enemies with unique attributes and fully customizable.<br/>
+					  	- System of categories and maps where you can introduce enemies.<br/>
+					  	- TOP system of the best players of the site.<br/>
+					  	- 100% Administration where you can manage the application completely.<br/>
+					  	- Profile system.<br/>
+					  	- System of combats as much with enemies (PvM) as with other users (PvP).<br/>
+					  	- Shop and inventory system.<br/>
+					  	- Private messaging system and notifications.<br/>
+					  	- Friends system.<br/>
+					  	- Feedback system to be able to report errors or suggestions directly to the administration.<br/>
+					  	- Permits with restrictions (for now there are three types of permissions, administrator, mod and taxpayer).<br/>
+					  	- Customizable and fully dynamic FAQ system from the administration.<br/>
+					  	</p>
+
+					  </p>
+
+
+					  <h2 id="ranks" style="margin-top:40px;">Permissions/ranks</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+						Currently <b>Battle-Web PHP</b> has three types of ranks, which would be "<b class="text-danger">Administrator</b>" (<b>1</b>) which has all the possible permissions, we would continue with "<b class="text-success">Moderator</b>" (<b>2</b>) that would have many areas of the administration restricted and therefore many permissions to general level, and finally we would have the "<b class="text-primary">Collaborator</b>" (<b>3</b>) who would have even more restricted areas, so as the name suggests would only serve as support for the news or help the administration in other ways, their access to the Administration is very limited.<br/>
+						</p>
+
+						<p>
+						The ranks in BW-PHP are identified by <b>IDs</b>, which i show in parentheses in the previous mentions, and therefore the code understand these ranges only by those <b>IDs</b>.
+						</p>
+
+					  </p>
+
+					  <h2 id="mobsandshop" style="margin-top:40px;">Enemies, shop and maps</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+					  	Enemies are part of the mechanics of the application, you can include them in the administration in the section "<b>Enemy Manager</b>", you can also equip each enemy with statistics and unique rewards.
+					  	</p>
+
+					  	<p>
+					  	In the store you can also include sales items that can be used as consumables throughout the user's progress. In administration, you can include such items with your name, description, the effect to be granted and the amount of its effect, together with the price.
+					  	</p>
+
+					  	<p>
+					  	The maps are the main part of the game, since it is where you will have to face the different enemies that you are implementing, first of all you must create the categories that in a more "gamer" concept would be "Worlds" or "Episodes" , and within those categories you should enter the maps. It should also be noted that in the creation of enemies you must assign a map, so if there are no maps I do not advise creating enemies.
+					  	</p>
+
+					  	<p>
+					  	<b>IMPORTANT:</b> the images of the enemies, products of the store and maps, must deposit it in the corresponding directories, which would be "<b>/assets/img/mobs</b>"(for enemies), "<b>/assets/img/items</b>"(for objects of store), "<b>/assets/img/maps</b>"(for maps). Once you have deposited these images, they will be automatically listed in the administration so that you can select your image in a drop-down list.
+					  	</p>
+
+					  </p>
+
+					  <h2 id="lang" style="margin-top:40px;">Languages</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+					  	Currently Battle-Web PHP only has one language and is the 'Spanish', because it is the native language of its developer and is the only one that participates in the development of this application, so this feature will depend on the success of it project, since it supposes some basic knowledge of other languages ​​which it does not possess.
+					  	</p>
+
+					  	<p>
+						<b class="text-danger">NOTE: The only thing translated is this documentation for a better understanding of the application.</b>
+					  	</p>
+
+					  </p>
+
+
+					  <h2 id="messagedev" style="margin-top:40px;">Developer message</h2>
+					  <hr/>
+					  <p>
+					  	
+					  	<p>
+						Hi!, if you are reading this, it means that you have purchased this product, for which I thank you from the bottom of my heart.
+						<b>Battle-Web PHP</b> has been my personal project for a few months now and as a single developer I have put a lot of effort and love into every feature this application currently has, it's been a few months since I started writing the BW-PHP code so that I am very proud to be able to offer you this product so that you can put it to work or learn how it works. You should know that the development has not finished so I will continue providing this project with more features and corrections as they suggest ideas or report bugs. I say goodbye and I sincerely hope that this product is to your liking and that you can put it to good use or at least be satisfied with your purchase, I thank you again for purchasing <b>Battle-Web PHP</b> and placing your trust in me.
+						See you very soon!
+						</p>
+
+					  </p>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+        </div>
+
+
+        <footer style="border-top:1px solid #ddd; padding:30px; margin-top:50px;" class="text-secondary">
+        	<div class="container">
+        		<p>
+				Battle-Web PHP created by <a href="http://coalsplay.com">CoalsPlay</a> with CodeIgniter 4 and Bootstrap 5.
+        		</p>
+        		<p>
+        		All rights reserved. &copy;
+        		</p>
+        	</div>
+        </footer>
+
+
+		<!-- JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/holder.js"></script>
+
+	</body>
+</html>
