@@ -1,3 +1,5 @@
+![Battle Web PHP](bannerBW-PHP.jpeg)
+
 # CodeIgniter 4 Framework
 
 ## What is CodeIgniter?
